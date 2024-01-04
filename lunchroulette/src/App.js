@@ -4,7 +4,6 @@ import { Wheel } from 'react-custom-roulette';
 
 function App() {
   const spinDuration = 0.3;
-
   const [data, setData] = useState([
     { option: '중국집'},
     { option: '햄버거'},
@@ -12,8 +11,7 @@ function App() {
     { option: '국밥'},
     { option: '분식'},
     { option: '구내식당'},
-  ]);
-  
+  ]);  
   const [mustSpin, setMustSpin] = useState(false);
   const [prizeNumber, setPrizeNumber] = useState(0);
   const [newPrizeNumber, setNewPrizeNumber] = useState(Math.floor(Math.random() * data.length));
@@ -25,7 +23,6 @@ function App() {
       setPrizeNumber(newPrizeNumber);
       setMustSpin(true);
       setNewPrizeNumber(Math.floor(Math.random() * data.length));
-      
     }
   }
 
@@ -58,7 +55,7 @@ function App() {
             />
 
             <div className='btn-area'>
-              <button className='start-btn' onClick={(e)=> setData([...data, {option: "new item"}])}>메뉴추가</button>
+              {/* <button className='start-btn' onClick={(e)=> setData([...data, {option: "new item"}])}>메뉴추가</button> */}
               <button className='start-btn' onClick={handleSpinClick}>룰렛 돌리기</button>
             </div>
           </div>
