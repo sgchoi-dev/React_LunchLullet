@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { Wheel } from 'react-custom-roulette';
 
 function App() {
+  const spinDuration = 0.3;
+
   const [data, setData] = useState([
     { option: '중국집'},
     { option: '햄버거'},
@@ -43,9 +45,10 @@ function App() {
         <div className='main-con-area'>
           <div className='wheel-area'>
             <Wheel
-              mustStartSpinning={mustSpin}
-              prizeNumber={prizeNumber}
-              data={data}
+              mustStartSpinning = {mustSpin}
+              prizeNumber = {prizeNumber}
+              data = {data}
+              spinDuration = {spinDuration}
       
               onStopSpinning={() => {
                 setMustSpin(false);
@@ -55,7 +58,7 @@ function App() {
             />
 
             <div className='btn-area'>
-              {/* <button className='start-btn' onClick={(e)=> setData([...data, {option: "new item"}])}>메뉴추가</button> */}
+              <button className='start-btn' onClick={(e)=> setData([...data, {option: "new item"}])}>메뉴추가</button>
               <button className='start-btn' onClick={handleSpinClick}>룰렛 돌리기</button>
             </div>
           </div>
