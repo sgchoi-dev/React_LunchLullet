@@ -17,6 +17,7 @@ function App() {
   const [newPrizeNumber, setNewPrizeNumber] = useState(Math.floor(Math.random() * data.length));
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [menuHistoryArr, setMenuHistoryArr] = useState([]);
+  const [addMenu, setAddMenu] = useState('');
 
   const handleSpinClick = () => {
     if (!mustSpin) {
@@ -24,6 +25,20 @@ function App() {
       setMustSpin(true);
       setNewPrizeNumber(Math.floor(Math.random() * data.length));
     }
+  }
+
+  const changeAddedMenu = (e) => {
+    setAddMenu(e.target.value);
+
+    //setAddMenu()
+    /*setPrizeNumber(newPrizeNumber);
+    setMustSpin(true);
+    setNewPrizeNumber(Math.floor(Math.random() * data.length));*/
+  };
+
+  const addedMenu = () => {
+    console.log("addedMenu");
+    setData([...data, {option: addMenu}]);
   }
 
   return (
@@ -34,8 +49,8 @@ function App() {
         <div className='user-input-area'>
           <p>추가하고싶은 메뉴를 적어주세요</p>
           <div className='input-box'>
-            <input type="text" />
-            <button className='btn-add'>추가</button>
+            <input type="text" value={addMenu} onChange={changeAddedMenu} />
+            <button className='btn-add' onClick={addedMenu}>추가</button>
           </div>
         </div>
   
